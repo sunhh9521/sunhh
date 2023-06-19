@@ -1,3 +1,6 @@
+# 手写对象深度比较isEqual
+
+```
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,3 +46,4 @@
     </script>
   </body>
 </html>
+```
