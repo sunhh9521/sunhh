@@ -4,30 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>js异步demo</title>
+    <title>异步实战</title>
   </head>
   <body>
-    <p>js异步demo</p>
-    <div id="container"></div>
-    <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.js"></script>
+    <h1>异步实战</h1>
     <script>
-      const $p1 = $('<p>一段文字</p>');
-      const $p2 = $('<p>一段文字</p>');
-      const $p3 = $('<p>一段文字</p>');
-      $('#container') 
-                    .append($p1)
-                    .append($p2)
-                    .append($p3)
-      // 微任务：DOM 渲染前触发
-      Promise.resolve().then(() => {
-        console.log('length1', $('#container').children().length)
-        alert('微任务触发')
-      })
-      // 宏任务：DOM 渲染后触发
-      setTimeout(() => {
-        console.log('length2', $('#container').children().length)
-        alert('宏任务触发')
-      })
+      function deepClone(obj) {
+        if (typeof obj !== 'object' || obj === null) {
+          return obj
+        }
+        let result
+        if (obj instanceof Array) {
+          result = []
+        } else {
+          result = {}
+        }
+        for (let key in obj) {
+          if (obj.hasOwnPrototype(key)) {
+            result[key] = deepClone(obj[key])
+          }
+        }
+        return result
+      }
     </script>
   </body>
 </html>
